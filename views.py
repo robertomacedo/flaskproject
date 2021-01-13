@@ -1,4 +1,4 @@
-
+from flask import jsonify, render_template
 def configure(app):
 
     @app.route('/')
@@ -12,4 +12,14 @@ def configure(app):
     @app.route('/membro')
     def membro():
         return '<h1>Nome : Emily de Jesus</h1>'
+
+    @app.route('/langs')
+    def langs():
+        languages = ['Python', 'Django', 'Flask', 'C++']
+        return render_template(
+            'index.html',
+            title = "Melhores Linguagens",
+            languages = languages
+        )
+        
 
